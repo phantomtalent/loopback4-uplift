@@ -1,6 +1,6 @@
-import {Client, expect} from '@loopback/testlab';
-import {Loopback4StarterApplication} from '../..';
-import {setupApplication} from './test-helper';
+import { Client, expect } from '@loopback/testlab';
+import { Loopback4StarterApplication as ToDoListApplication } from '../..';
+import { setupApplication } from './test-helper';
 import {
   UserRepository,
   AuthClientRepository,
@@ -8,11 +8,11 @@ import {
   TenantRepository,
   UserTenantRepository,
 } from '../../repositories';
-import {RoleType} from '../../modules/roles/role.enum';
-import {TenantType} from '../../modules/user-tenants/tenant-type.enum';
+import { RoleType } from '../../modules/roles/role.enum';
+import { TenantType } from '../../modules/user-tenants/tenant-type.enum';
 
 describe('Login Controller', () => {
-  let app: Loopback4StarterApplication;
+  let app: ToDoListApplication;
   let client: Client;
   let userRepo: UserRepository;
   let authClientRepository: AuthClientRepository;
@@ -21,7 +21,7 @@ describe('Login Controller', () => {
   let userTenantRepository: UserTenantRepository;
 
   before('setupApplication', async () => {
-    ({app, client} = await setupApplication());
+    ({ app, client } = await setupApplication());
   });
 
   before(givenRepositories);
@@ -109,7 +109,7 @@ describe('Login Controller', () => {
 
     const response = await client
       .post(`/auth/token-refresh`)
-      .send({refreshToken: authTokenResponse.body.refreshToken});
+      .send({ refreshToken: authTokenResponse.body.refreshToken });
 
     expect(response.body).to.have.properties(['accessToken', 'refreshToken']);
   });

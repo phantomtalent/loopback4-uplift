@@ -1,10 +1,10 @@
-import {Loopback4StarterApplication} from '../..';
+import { Loopback4StarterApplication as ToDoListApplication } from '../..';
 import {
   createRestAppClient,
   givenHttpServerConfig,
   Client,
 } from '@loopback/testlab';
-import {AuthenticationBindings} from 'loopback4-authentication';
+import { AuthenticationBindings } from 'loopback4-authentication';
 
 export async function setupApplication(): Promise<AppWithClient> {
   const restConfig = givenHttpServerConfig({
@@ -15,7 +15,7 @@ export async function setupApplication(): Promise<AppWithClient> {
     // port: +process.env.PORT,
   });
 
-  const app = new Loopback4StarterApplication({
+  const app = new ToDoListApplication({
     rest: restConfig,
   });
 
@@ -35,10 +35,10 @@ export async function setupApplication(): Promise<AppWithClient> {
 
   const client = createRestAppClient(app);
 
-  return {app, client};
+  return { app, client };
 }
 
 export interface AppWithClient {
-  app: Loopback4StarterApplication;
+  app: ToDoListApplication;
   client: Client;
 }

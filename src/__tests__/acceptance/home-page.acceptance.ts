@@ -1,13 +1,13 @@
-import {Client} from '@loopback/testlab';
-import {Loopback4StarterApplication} from '../..';
-import {setupApplication} from './test-helper';
+import { Client } from '@loopback/testlab';
+import { Loopback4StarterApplication as ToDoListApplication } from '../..';
+import { setupApplication } from './test-helper';
 
 describe('HomePage', () => {
-  let app: Loopback4StarterApplication;
+  let app: ToDoListApplication;
   let client: Client;
 
   before('setupApplication', async () => {
-    ({app, client} = await setupApplication());
+    ({ app, client } = await setupApplication());
   });
 
   after(async () => {

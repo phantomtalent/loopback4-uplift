@@ -1,24 +1,24 @@
-import {Client, expect} from '@loopback/testlab';
-import {Loopback4StarterApplication} from '../..';
-import {setupApplication} from './test-helper';
+import { Client, expect } from '@loopback/testlab';
+import { Loopback4StarterApplication as ToDoListApplication } from '../..';
+import { setupApplication } from './test-helper';
 import * as jwt from 'jsonwebtoken';
 import {
   UserRepository,
   TenantRepository,
   RoleRepository,
 } from '../../repositories';
-import {TenantType} from '../../modules/user-tenants/tenant-type.enum';
-import {RoleType} from '../../modules/roles/role.enum';
+import { TenantType } from '../../modules/user-tenants/tenant-type.enum';
+import { RoleType } from '../../modules/roles/role.enum';
 
 describe('User Controller', () => {
-  let app: Loopback4StarterApplication;
+  let app: ToDoListApplication;
   let client: Client;
   let userRepo: UserRepository;
   let tenantRepository: TenantRepository;
   let roleRepository: RoleRepository;
 
   before('setupApplication', async () => {
-    ({app, client} = await setupApplication());
+    ({ app, client } = await setupApplication());
   });
 
   before(givenRepositories);

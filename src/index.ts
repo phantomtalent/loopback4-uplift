@@ -1,10 +1,10 @@
-import {Loopback4StarterApplication} from './application';
-import {ApplicationConfig} from '@loopback/core';
+import { ToDoListApplication } from './application';
+import { ApplicationConfig } from '@loopback/core';
 
-export {Loopback4StarterApplication};
+export { ToDoListApplication as Loopback4StarterApplication };
 
 export async function main(options: ApplicationConfig = {}) {
-  const app = new Loopback4StarterApplication(options);
+  const app = new ToDoListApplication(options);
   await app.boot();
   await app.start();
 
